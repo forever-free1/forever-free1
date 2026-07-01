@@ -34,6 +34,7 @@
 ![Model](https://img.shields.io/badge/Base-Qwen3--4B--Thinking-111111?style=flat-square)
 ![Accuracy](https://img.shields.io/badge/Accuracy-79.3%25-22863A?style=flat-square)
 ![Evidence F1](https://img.shields.io/badge/Evidence_F1-0.377_%E2%86%92_0.406-6F42C1?style=flat-square)
+[![Blog](https://img.shields.io/badge/Blog-%E6%8E%98%E9%87%91%E8%A7%A3%E8%AF%BB-1E80FF?style=flat-square)](https://juejin.cn/post/7657129096330854451)
 
 </div>
 
@@ -86,11 +87,9 @@
 
 ### 还在整理中
 
-除了大模型后训练，我也保留了一些 Go、Rust、Python 和 Web 相关的小项目。
+除了大模型后训练，我也保留了一些 Go、Python 和 Web 相关的小项目。
 
 这些项目不一定直接对应论文，但会记录一些从零实现、系统拆解和工程化训练的过程。对我来说，研究项目最后能不能落下来，很大程度上也取决于这些更基础的工程能力。
-
-主页里暂时只放能说明问题的项目，不打算把所有仓库都堆上来。
 
 ---
 
