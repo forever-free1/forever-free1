@@ -1,27 +1,26 @@
 <div align="center">
 
-# forever-free1
+# Hao Dou · forever-free1
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono\&size=22\&duration=2600\&pause=700\&color=2F80ED\&center=true\&vCenter=true\&width=760\&lines=Multimodal+Foundation+Models;Vision-Language-Action;LLM+Post-training+%26+Reinforcement+Learning;Agents+%26+Reasoning;Efficient+Multimodal+Inference)](https://git.io/typing-svg)
 
-I work on **multimodal foundation models and LLM post-training**,
-with a focus on **VLA, reinforcement learning, agents, and efficient inference**.
+**Multimodal Foundation Models · VLA · LLM Post-training · Reinforcement Learning**
 
 <br>
 
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?style=flat-square\&logo=python\&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-2.x-EE4C2C?style=flat-square\&logo=pytorch\&logoColor=white)
 ![VLA](https://img.shields.io/badge/Research-VLA-2F80ED?style=flat-square)
-![RL](https://img.shields.io/badge/RL-GRPO%20%2F%20DAPO-6F42C1?style=flat-square)
+![RL](https://img.shields.io/badge/RL-GRPO%20%2F%20DAPO%20%2F%20GSPO-6F42C1?style=flat-square)
 ![Research](https://img.shields.io/badge/Research-Reproducible-22863A?style=flat-square)
 
 </div>
 
 ---
 
-I enjoy starting from concrete failure modes, designing small and testable interventions, and validating what actually changes through reproducible experiments.
+My recent work focuses on **VLA post-training, reinforcement learning for LLM agents, multimodal inference efficiency, and RL training systems**.
 
-My recent work mainly explores **self-evolving VLA post-training, reinforcement learning for multi-turn agents, multimodal inference efficiency, and lightweight RL infrastructure**.
+Current technical interests include **self-evolving post-training, rollout-based policy optimization, credit assignment, verifiable rewards, multimodal inference optimization, and efficient RL infrastructure**.
 
 ## Selected Work
 
@@ -40,7 +39,7 @@ My recent work mainly explores **self-evolving VLA post-training, reinforcement 
 
 A self-evolving post-training framework for driving VLA models.
 
-FIRE-VLA retains GRPO rollout learning while identifying unresolved failure groups from reward and rollout diversity. A frozen privileged teacher then provides on-policy supervision for these difficult samples, allowing the student policy and its failure distribution to evolve together across training rounds.
+FIRE-VLA retains GRPO rollout learning while identifying unresolved failure groups from reward and rollout diversity. A frozen privileged teacher provides on-policy supervision for difficult samples, allowing the student policy and its failure distribution to evolve together across training rounds.
 
 **Avg L2 improves from `0.6421 → 0.6023`** over standard GRPO, while severe long-error rollouts are reduced from **81 → 50** under G=4 evaluation.
 
@@ -61,9 +60,9 @@ FIRE-VLA retains GRPO rollout learning while identifying unresolved failure grou
 
 **Contextual Information-Gain Policy Optimization for Multi-Turn Evidence-Reading Agents**
 
-CIGPO starts from a failure mode of outcome-only GRPO: as reward variance disappears, multi-turn agents can enter a **zero-advantage lock-in**, causing the policy gradient to vanish.
+CIGPO studies a failure mode of outcome-only GRPO in multi-turn evidence-reading agents: as reward variance disappears, training can enter a **zero-advantage lock-in** and lose effective policy-gradient signals.
 
-Instead of assigning credit only to the final answer, CIGPO estimates how much each newly read piece of evidence increases confidence in the correct answer and turns this information gain into a process-level learning signal.
+Instead of assigning credit only to the final answer, CIGPO estimates how much each newly observed piece of evidence increases confidence in the correct answer and converts this contextual information gain into process-level rewards.
 
 On HotpotQA with Qwen2.5-3B, standard F1 improves from **`0.252 → 0.518`**, while the GRPO baseline eventually collapses to **0.000**.
 
@@ -84,13 +83,11 @@ On HotpotQA with Qwen2.5-3B, standard F1 improves from **`0.252 → 0.518`**, wh
 
 **When Do Fewer Visual Tokens Actually Accelerate Multimodal Inference?**
 
-Reducing visual tokens does not necessarily make multimodal inference faster.
+A systems study of the **break-even point of visual-token reduction** in multimodal LLM inference.
 
-This project studies the real **break-even point of visual-token reduction**, measuring not only LLM prefill and decoding but also policy overhead, image preprocessing, vision encoding, and reusable computation.
+The project measures not only LLM prefill and decoding, but also routing overhead, image preprocessing, vision encoding, and reusable computation to determine when reducing visual tokens actually improves end-to-end latency.
 
-Experiments on Qwen2.5-VL-3B show up to **5.62% mean latency reduction on RTX 3090**, while also demonstrating an important systems effect:
-
-> Removing more visual tokens can save less latency when the reduction happens after expensive operators have already executed.
+Experiments on Qwen2.5-VL-3B show up to **5.62% mean latency reduction on RTX 3090**, while demonstrating that removing more visual tokens does not necessarily result in larger latency savings.
 
 [**Code**](https://github.com/forever-free1/visual-token-break-even) · [**Paper**](https://arxiv.org/abs/2608.03649)
 
@@ -100,18 +97,24 @@ Experiments on Qwen2.5-VL-3B show up to **5.62% mean latency reduction on RTX 30
 
 <div align="left">
 
-![Framework](https://img.shields.io/badge/Framework-Lightweight-2F80ED?style=flat-square)
-![RL](https://img.shields.io/badge/RL-GRPO_%2F_DAPO-6F42C1?style=flat-square)
-![Design](https://img.shields.io/badge/Design-Plugin--based-22863A?style=flat-square)
-![Purpose](https://img.shields.io/badge/Purpose-Fast_Iteration-111111?style=flat-square)
+![Scope](https://img.shields.io/badge/Scope-Single--node_RL-2F80ED?style=flat-square)
+![Algorithms](https://img.shields.io/badge/Algorithms-GRPO_%2F_DAPO_%2F_GSPO-6F42C1?style=flat-square)
+![Runtime](https://img.shields.io/badge/Runtime-Ray_%2B_vLLM-111111?style=flat-square)
+![Sync](https://img.shields.io/badge/Sync-Versioned_LoRA-22863A?style=flat-square)
 
 </div>
 
-**A lightweight plugin-based LoRA-GRPO / DAPO framework**
+**A compact framework for understanding and reproducing LLM policy optimization**
 
-`rlite` is a lightweight RL post-training framework built for quickly testing new tasks, reward functions, and training ideas.
+`rlite` exposes the complete online-RL training path instead of hiding it behind a large distributed training stack:
 
-Instead of covering every large-scale training scenario, it keeps **task, reward, training configuration, and evaluation logic** modular so that small verifiable RL experiments can be built and iterated quickly.
+**vLLM rollout → verifiable rewards → grouped experience → policy optimization → versioned LoRA synchronization**
+
+It provides **GRPO, DAPO, and GSPO** objectives through a common algorithm interface, with Ray-based rollout/trainer actors, bounded experience buffering, Hugging Face and vLLM rollout backends, token-aware LoRA microbatch training, and explicit rollout-policy version consistency.
+
+The framework also implements **versioned adapter synchronization** and guards against stale experience, policy-version mismatch, response-token misalignment, and cache reuse across policy updates.
+
+Small-scale Qwen2.5-1.5B-Instruct experiments on GSM8K complete **200 GRPO / GSPO updates** on two RTX 3090 GPUs, serving as an end-to-end validation of the training runtime.
 
 [**Code**](https://github.com/forever-free1/rlite)
 
@@ -127,24 +130,16 @@ Some earlier research and engineering work:
 * **[TideKV](https://github.com/forever-free1/TideKV)** — distributed KV storage implemented in Go with Bitcask, Raft and Bloom Filters.
 * **[go-ai-copilot](https://github.com/forever-free1/go-ai-copilot)** — a RAG-based AI coding assistant with streaming dialogue and a complete Web backend.
 
-These projects reflect some of my earlier work in **LLMs, agents, distributed systems, backend engineering, and building systems from scratch**.
-
 ---
 
-## Current Interests
+## Technical Focus
 
 <div align="center">
 
-`Vision-Language-Action` · `Multimodal LLMs` · `LLM Post-training` · `GRPO`
+`Vision-Language-Action` · `Multimodal LLMs` · `LLM Post-training` · `Policy Optimization`
 
-`Agent RL` · `Credit Assignment` · `Self-Evolution` · `Efficient Inference`
+`GRPO` · `DAPO` · `GSPO` · `Agent RL` · `Credit Assignment`
 
-</div>
-
----
-
-<div align="center">
-
-**Small, complete, and verifiable problems over large but vague stories.**
+`Self-Evolution` · `vLLM` · `LoRA` · `Efficient Inference`
 
 </div>
