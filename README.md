@@ -1,6 +1,6 @@
 <div align="center">
 
-# Hao Dou · forever-free1
+# Forever-free1
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono\&size=22\&duration=2600\&pause=700\&color=2F80ED\&center=true\&vCenter=true\&width=760\&lines=Multimodal+Foundation+Models;Vision-Language-Action;LLM+Post-training+%26+Reinforcement+Learning;Agents+%26+Reasoning;Efficient+Multimodal+Inference)](https://git.io/typing-svg)
 
